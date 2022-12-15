@@ -1,3 +1,4 @@
+import { ifStmt } from "@angular/compiler/src/output/output_ast";
 import { Component, OnInit } from "@angular/core";
 
 @Component({
@@ -32,5 +33,10 @@ export class CrewComponent implements OnInit {
   save(name: string, member: object) {
     member["name"] = name;
     this.memberBeingEdited = null;
+  }
+  duplicateCrew(person: object) {
+    if (!this.crew.includes(person)) {
+      this.crew.push(person);
+    }
   }
 }
